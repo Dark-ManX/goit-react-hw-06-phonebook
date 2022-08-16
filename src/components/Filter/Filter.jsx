@@ -5,7 +5,7 @@ import {setFilter} from '../../redux/filter';
 const Filter = () => {
 
     const dispatch = useDispatch();
-    const filter = useSelector(state => state.filter.filterValue);
+    const filter = useSelector(state => state.filter);
 console.log(filter)
     const handleFilter = e => {
     const {value} = e.target;

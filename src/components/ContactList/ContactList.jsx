@@ -7,6 +7,7 @@ const ContactList = () => {
 
     const dispatch = useDispatch();
     const contacts = useSelector(state => state.contacts.list);
+    console.log(contacts)
     const filter = useSelector(state => state.filter);
     console.log(filter);
     const makeContactsFilter = filterName => {
@@ -21,7 +22,7 @@ const ContactList = () => {
     const filteredContacts = makeContactsFilter(filter);
     console.log(filteredContacts)
 
-    const deleteContact = (itemId) => dispatch(onRemove(itemId));
+    const deleteContact = (itemId) => console.log('dispatch', dispatch(onRemove(itemId)));
 
     return (
 

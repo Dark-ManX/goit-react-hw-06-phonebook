@@ -9,7 +9,9 @@ const { labelStyles } = styles;
 export default function ContactForm() {
 
     const dispatch = useDispatch();
-    // const contacts = useSelector(state => state.contacts.list);
+    const contacts = useSelector(state => state.contacts.list);
+    console.log(contacts);
+    
 
     const [name, setName] = useState('');
     const [number, setNumber] = useState('');
@@ -30,7 +32,11 @@ export default function ContactForm() {
                 return;
         }
 }    
-
+console.log({
+            id: shortid.generate(), 
+            name, 
+            number
+        });
     const handleSubmit = (e) => {
         e.preventDefault();
 
