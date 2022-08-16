@@ -36,15 +36,18 @@ export default function ContactForm() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const inLowerCase = name.toLowerCase();
-        const checkValue = contacts.find(el => el.inLowerCase === inLowerCase)
+        const checkName = contacts.find(el => (el.name.toLowerCase() === name.toLowerCase()));
+        const checkNumber = contacts.find(el => (el.number === number));
         
-        if (checkValue) {
+        console.log(checkName);
+                console.log(checkNumber);
 
-            dispatch(onAdd({
-            id: shortid.generate(), 
-            name, 
-            number
+        if (!checkName || !checkNumber) {
+
+            return dispatch(onAdd({
+                id: shortid.generate(), 
+                name, 
+                number
             }));
         }
 
@@ -64,6 +67,7 @@ export default function ContactForm() {
             <input
                 value={name}
                 onChange={handleInput}
+                autoComplete='off'
                 type="text"
                 name="name"
                 pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -77,6 +81,7 @@ export default function ContactForm() {
             <input
                 value={number}
                 onChange={handleInput}
+                autoComplete='off'
                 type="tel"
                 name="number"
                 pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
