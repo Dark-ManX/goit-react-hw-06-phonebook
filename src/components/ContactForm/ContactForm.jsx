@@ -36,8 +36,8 @@ export default function ContactForm() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const checkName = contacts.find(el => (el.name.toLowerCase() === name.toLowerCase()));
-        const checkNumber = contacts.find(el => (el.number === number));
+        const checkName = contacts.find(el => (el.name.toLowerCase() === name.trim().toLowerCase()));
+        const checkNumber = contacts.find(el => (el.number === number.trim()));
         
         console.log(checkName);
                 console.log(checkNumber);
