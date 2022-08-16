@@ -32,20 +32,23 @@ export default function ContactForm() {
                 return;
         }
 }    
-console.log({
-            id: shortid.generate(), 
-            name, 
-            number
-        });
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        dispatch(onAdd({
+        const inLowerCase = name.toLowerCase();
+        const checkValue = contacts.find(el => el.inLowerCase === inLowerCase)
+        
+        if (checkValue) {
+
+            dispatch(onAdd({
             id: shortid.generate(), 
             name, 
             number
-        }));
+            }));
+        }
 
+        alert('Sorry, but you already have equal contacts')
         reset();
     }
 

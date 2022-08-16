@@ -22,7 +22,8 @@ const ContactList = () => {
     const filteredContacts = makeContactsFilter(filter);
     console.log(filteredContacts)
 
-    const deleteContact = (itemId) => console.log('dispatch', dispatch(onRemove(itemId)));
+    const deleteContact = (itemId) => dispatch(onRemove(itemId));
+    
 
     return (
 
